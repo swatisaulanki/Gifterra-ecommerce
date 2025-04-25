@@ -1,5 +1,7 @@
 import React from 'react'
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import HomeSlider2 from '../components/HomeSlider2';
 
 const Home = () => {
     const categories = [
@@ -58,6 +60,28 @@ const Home = () => {
       }, [index, isMobile]);
     
     
+
+        const sliderContainerRef = useRef(null);
+
+  // Auto-scroll effect (looping left to right)
+  useEffect(() => {
+    const slider = sliderContainerRef.current;
+    let scrollStep = 1;
+
+    const autoScroll = () => {
+      if (slider) {
+        slider.scrollLeft += scrollStep;
+        if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) {
+          slider.scrollLeft = 0;
+        }
+      }
+    };
+
+    const scrollInterval = setInterval(autoScroll, 30); // Adjust speed here
+
+    return () => clearInterval(scrollInterval);
+  }, []);
+
       
   return (
     <>
@@ -198,6 +222,140 @@ const Home = () => {
       </div>
     </div>
 
+    <div className="relative w-full bg-gradient-to-r from-pink-100 via-pink-50 to-pink-100 rounded-3xl overflow-hidden p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl group transition-all duration-500 hover:scale-105 hover:shadow-primary animate-slideUp">
+
+      {/* Floating Background Elements */}
+      <div className="absolute top-[-40px] left-[-40px] w-40 h-40 bg-primary opacity-10 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-[-40px] right-[-40px] w-52 h-52 bg-secondary opacity-10 rounded-full animate-pulse"></div>
+
+      {/* Left Image */}
+      <div className="flex-1 flex justify-center items-center">
+        <img 
+          src="/gift.png" 
+          alt="Gift" 
+          className="w-56 md:w-72 object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-2xl"
+        />
+      </div>
+
+      {/* Center Text */}
+      <div className="flex-1 text-center md:text-left space-y-5">
+        <p className="text-primary text-xl font-semibold font-poppins tracking-wide animate-pulse">
+          Bank Offer
+        </p>
+        <h1 className="text-5xl md:text-6xl font-bebasNeue text-dark leading-tight">
+          Get <span className="text-primary">up to 5% off</span>
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 font-poppins">
+          Use your <span className="font-bold text-dark">Debit Card</span> and enjoy exclusive benefits.
+        </p>
+        
+        {/* HDFC Logo */}
+        <div className="mt-8 flex justify-center md:justify-start">
+          <img 
+            src="/hdfc-logo.png" 
+            alt="HDFC Bank" 
+            className="w-44 transition-transform duration-500 hover:scale-110"
+          />
+        </div>
+      </div>
+
+      {/* Right Wallet Image */}
+      <div className="flex-1 flex justify-center items-center">
+        <img 
+          src="/wallet.png" 
+          alt="Wallet" 
+          className="w-52 md:w-64 object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-2xl"
+        />
+      </div>
+
+    </div>
+
+
+
+
+    <section className="w-full bg-white py-10">
+      <div className="mb-6">
+        <h2 className="text-3xl font-bold text-gray-800">Kids Special</h2>
+        <p className="text-gray-500 mt-2">Where Fun Meets Creativity!</p>
+      </div>
+
+      <motion.div
+        className="relative w-full bg-pink-400 rounded-3xl overflow-hidden px-4 md:px-16 py-10 flex flex-col lg:flex-row items-center justify-between"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        {/* Left Text Section */}
+        <div className="flex-1 text-center lg:text-left z-10">
+          <motion.h3
+            className="text-4xl font-bold text-white mb-4"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            Kids Bag
+          </motion.h3>
+          <motion.p
+            className="text-white text-lg mb-6"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            Cute, Comfy & Fun to Carry!
+          </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-white text-pink-500 font-semibold px-6 py-2 rounded-full shadow-md hover:bg-pink-100 transition-all"
+          >
+            Shop Now
+          </motion.button>
+        </div>
+
+        {/* Decorative Dotted Line (optional) */}
+        <div className="hidden lg:block absolute left-1/2 top-2/3 transform -translate-x-1/2 -translate-y-1/2">
+          <svg width="200" height="50">
+            <path d="M 0 25 Q 50 0, 100 25 T 200 25" fill="none" stroke="#fff" strokeWidth="2" strokeDasharray="5,5" />
+          </svg>
+        </div>
+
+        {/* Image Section with Animation */}
+        <motion.div
+          className="flex-1 mt-8 lg:mt-0 z-10"
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          <motion.img
+            whileHover={{ scale: 1.05 }}
+            src="https://i.ibb.co/dW5tLmB/lion-bag.png"
+            alt="Kids Lion Bag"
+            className="w-[250px] mx-auto lg:mx-0 transition-all duration-300"
+          />
+        </motion.div>
+
+        {/* Discount Badge with Bounce Animation */}
+        <motion.div
+          className="absolute top-6 right-6 bg-white text-pink-500 px-5 py-3 rounded-2xl text-center shadow-lg z-10"
+          animate={{ y: [0, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        >
+          <p className="text-3xl font-bold">10%</p>
+          <p className="text-xl font-medium">Off</p>
+        </motion.div>
+
+        {/* Background Wave */}
+        <div className="absolute bottom-0 left-0 w-full z-0">
+          <svg viewBox="0 0 1440 120" className="w-full h-auto">
+            <path fill="#fcb2b2" fillOpacity="1" d="M0,64L48,74.7C96,85,192,107,288,112C384,117,480,107,576,106.7C672,107,768,117,864,112C960,107,1056,85,1152,69.3C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+          </svg>
+        </div>
+      </motion.div>
+    </section>
+
+
+<HomeSlider2/>
 
 </>
   );
