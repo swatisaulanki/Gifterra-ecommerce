@@ -2,8 +2,46 @@ import React from 'react'
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import HomeSlider2 from '../components/HomeSlider2';
+import ProductGrid from '../components/ProductGrid';
+import SweetSurprises from '../components/SweetSurprises';
+import Footer from '../components/Footer';
 
 const Home = () => {
+
+  const products = [
+    {
+      id: 1,
+      name: 'For her',
+      image: 'https://lovecraftgift.com/cdn/shop/files/Frame_33907_2.jpg?v=1741759916&width=1100',
+    },
+    {
+      id: 2,
+      name: 'For Friends',
+      image: 'https://lovecraftgift.com/cdn/shop/files/Frame_33908_3.jpg?v=1741760211&width=1100',
+    },
+    {
+      id: 3,
+      name: 'For him',
+      image: 'https://lovecraftgift.com/cdn/shop/files/Frame_33908_2.jpg?v=1741759916&width=1100',
+    },
+    {
+      id: 4,
+      name: 'Fir couple',
+      image: 'https://lovecraftgift.com/cdn/shop/files/Frame_33909_2.jpg?v=1741759916&width=1100',
+    },
+    {
+      id: 5,
+      name: 'For kids',
+      image: 'https://lovecraftgift.com/cdn/shop/files/Frame_33907_3.jpg?v=1741760211&width=1100',
+    },
+    {
+      id: 6,
+      name: 'For familly',
+      image: 'https://lovecraftgift.com/cdn/shop/files/Frame_33909_3.jpg?v=1741760211&width=1100',
+    },
+  ];
+  
+  
     const categories = [
         { name: "Collection", img: "https://royceindia.com/cdn/shop/files/RedRosetteBox-SignatureRedGiftCollection.webp?v=1712058240" },
         { name: "Gift on Sale", img: "https://img.freepik.com/free-photo/black-friday-arrangement-red-background-with-copy-space_23-2148665558.jpg?semt=ais_hybrid&w=740" },
@@ -87,7 +125,7 @@ const Home = () => {
     <>
     <div className="w-full bg-gradient-to-b from-[#1f0036] via-[#2a0b4a] to-[#1f0036] px-4 py-16">
       {/* Heading */}
-      <h2 className="text-3xl md:text-5xl font-extrabold text-white text-center mb-12 tracking-wide">
+      <h2 className="text-3xl md:text-5xl font-extrabold text-white  mb-12 tracking-wide">
         🛍️ Top <span className="text-purple-400">Selling</span> Products
       </h2>
 
@@ -356,7 +394,35 @@ const Home = () => {
 
 
 <HomeSlider2/>
+<ProductGrid/>
+<div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl font-extrabold text-gray-900 mb-8 ">For Every Relationship</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="bg-white rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg"
+          >
+            <div className="aspect-w-1 aspect-h-1">
+              <img
+                className="w-full h-full object-contain"
+                src={product.image}
+                alt={product.name}
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-gray-800 text-center">{product.name}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
+
+
+
+<SweetSurprises/>
+<Footer/>
 </>
   );
 

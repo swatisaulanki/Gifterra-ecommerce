@@ -1,4 +1,6 @@
 import { useState } from "react";
+import swatiss from "../assets/gifterras.jpeg";
+
 import {
   FaBars,
   FaTimes,
@@ -23,13 +25,13 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50 w-full">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center relative">
+    <header className="  bg-black shadow-md sticky text-white top-0 z-50 w-full font-poppins">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center relative">
 
         {/* Left - Navigation Links (Desktop) */}
         {!searchOpen && (
-          <nav className="hidden md:flex space-x-6 items-center">
-            <a href="#" onClick={handleLinkClick} className="hover:text-pink-600 transition">Home</a>
+          <nav className="hidden md:flex space-x-6 text-white items-center">
+            <a href="#" onClick={handleLinkClick} className="hover:text-pink-600  transition">Home</a>
             <div className="relative group">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -55,20 +57,24 @@ const Navbar = () => {
         {/* Center - Brand */}
         {!searchOpen && (
           <div className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold text-gray-800">
-            Gifterra
+            <img 
+              src={swatiss} 
+              alt="Gifterra Logo" 
+              className="w-36 h-20 sm:w-24 sm:h-24 md:w-36 md:h-15 object-contain" 
+            />
           </div>
         )}
 
         {/* Right - Icons */}
-        <div className="flex items-center gap-4 ml-auto md:ml-0">
+        <div className="flex items-center gap-4 ml-auto md:ml-0 text-white">
           {!searchOpen && (
             <>
-              <button onClick={() => setSearchOpen(true)} className="text-xl text-gray-800"><FaSearch /></button>
+              <button onClick={() => setSearchOpen(true)} className="text-xl text-white"><FaSearch /></button>
               <div className="hidden md:flex gap-4">
-                <button className="text-xl text-gray-800"><FaUser /></button>
-                <button className="text-xl text-gray-800"><FaShoppingCart /></button>
+                <button className="text-xl text-white"><FaUser /></button>
+                <button className="text-xl text-white"><FaShoppingCart /></button>
               </div>
-              <button onClick={() => setIsOpen(!isOpen)} className="text-xl text-gray-800 md:hidden">
+              <button onClick={() => setIsOpen(!isOpen)} className="text-xl text-white md:hidden">
                 {isOpen ? <FaTimes /> : <FaBars />}
               </button>
             </>
