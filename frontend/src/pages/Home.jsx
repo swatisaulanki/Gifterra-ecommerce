@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import HomeSlider2 from '../components/HomeSlider2';
 import ProductGrid from '../components/ProductGrid';
 import SweetSurprises from '../components/SweetSurprises';
-import Footer from '../components/Footer';
+import CategorySlider from '../components/CategorySlider';
+import GiftSlider from '../components/GiftSlider';
+import Slider from '../components/Slider';
 
 const Home = () => {
 
@@ -123,6 +125,9 @@ const Home = () => {
       
   return (
     <>
+    <CategorySlider/>
+    <Slider/>
+    <GiftSlider/>
     <div className="w-full bg-gradient-to-b from-[#1f0036] via-[#2a0b4a] to-[#1f0036] px-4 py-16">
       {/* Heading */}
       <h2 className="text-3xl md:text-5xl font-extrabold text-white  mb-12 tracking-wide">
@@ -422,7 +427,6 @@ const Home = () => {
 
 
 <SweetSurprises/>
-<Footer/>
 </>
   );
 

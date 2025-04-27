@@ -1,20 +1,23 @@
-import CategorySlider from "./components/CategorySlider";
-import GiftSlider from "./components/GiftSlider";
+
+import {Routes,Route} from 'react-router-dom'
 import Navbar from "./components/Navbar";
-import Slider from "./components/Slider";
 import TopSlider from "./components/TopSlider";
 import Home from "./pages/Home";
+import ContactUs from './pages/ContactUs';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div>
       <TopSlider/>
       <Navbar />
-      <CategorySlider/>
       {/* Other content */}
-      <Slider/>
-      <GiftSlider/>
-      <Home/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/contact' element={<ContactUs/>}/>
+
+      </Routes>
+      <Footer/>
     </div>
   );
 }
