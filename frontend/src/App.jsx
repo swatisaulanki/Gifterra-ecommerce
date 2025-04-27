@@ -5,6 +5,7 @@ import TopSlider from "./components/TopSlider";
 import Home from "./pages/Home";
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer';
+import BlogPage from './pages/BlogPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/contact' element={<ContactUs/>}/>
+        <Route path='/blog' element={<BlogPage/>}/>
 
       </Routes>
       <Footer/>
