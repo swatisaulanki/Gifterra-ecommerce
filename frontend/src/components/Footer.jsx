@@ -43,7 +43,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaHome className="mr-2 text-indigo-500" />
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaHome className="mr-2 text-indigo-500" />
@@ -51,7 +51,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaHome className="mr-2 text-indigo-500" />
-              <a href="#">Contact Us</a>
+              <a href="/contact">Contact Us</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaTruck className="mr-2 text-indigo-500" />
@@ -59,7 +59,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaBlog className="mr-2 text-indigo-500" />
-              <a href="#">Blog</a>
+              <a href="/blog">Blog</a>
             </li>
           </ul>
         </div>
