@@ -32,7 +32,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaEnvelope className="mr-2 text-red-500" />
-              <a href="mailto:support@example.com">support@example.com</a>
+              <a href="mailto:support@example.com">support@gifterra.com</a>
             </li>
           </ul>
         </div>

@@ -31,7 +31,7 @@ const Navbar = () => {
         {/* Left - Navigation Links (Desktop) */}
         {!searchOpen && (
           <nav className="hidden md:flex space-x-6 text-white items-center">
-            <a href="#" onClick={handleLinkClick} className="hover:text-pink-600  transition">Home</a>
+            <a href="/" onClick={handleLinkClick} className="hover:text-pink-600  transition">Home</a>
             <div className="relative group">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
