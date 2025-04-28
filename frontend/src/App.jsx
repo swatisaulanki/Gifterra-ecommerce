@@ -6,6 +6,11 @@ import Home from "./pages/Home";
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer';
 import BlogPage from './pages/BlogPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import RefundPolicy from './pages/RefundPolicy';
+import ShippingPolicy from './pages/ShippingPolicy';
+import TrackOrder from './pages/trackOrder';
 
 function App() {
   return (
@@ -17,6 +22,11 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/contact' element={<ContactUs/>}/>
         <Route path='/blog' element={<BlogPage/>}/>
+        <Route path='/privacy' element={<PrivacyPolicy/>}/>
+        <Route path='/terms' element={<TermsOfService/>}/>
+        <Route path='/refund' element={<RefundPolicy/>}/>
+        <Route path='/shipping' element={<ShippingPolicy/>}/>
+        <Route path='/track' element={<TrackOrder/>}/>
 
       </Routes>
       <Footer/>

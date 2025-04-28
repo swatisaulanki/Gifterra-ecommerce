@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPinIcon } from '@heroicons/react/24/solid';
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Simulate form submission
+    setIsSubmitted(true);
+    // Here, you can integrate with an API to handle the form data.
+    console.log(formData);
+  };
+
+
   return (
     <>
 <div className="relative w-full h-[60vh]  md:h-[60vh] flex items-center justify-center overflow-hidden">
@@ -42,13 +64,13 @@ const ContactUs = () => {
     {/* Left Side - Contact Info */}
     <div className="lg:w-5/12 w-full space-y-10">
       {/* Static Title */}
-      <h2 className="text-4xl md:text-4xl font-bold mb-16 text-blue-900">
+      <h2 className="text-4xl md:text-4xl font-bold mb-16 text-primary">
         Get In Touch
       </h2>
 
       <div className="space-y-2">
-        <h3 className="text-2xl font-semibold text-blue-800 flex items-center">
-          <MapPinIcon className="h-6 w-6 mr-2 text-blue-800" /> Address:
+        <h3 className="text-2xl font-semibold text-primary flex items-center">
+          <MapPinIcon className="h-6 w-6 mr-2 text-primary" /> Address:
         </h3>
         <p className="text-gray-700 leading-relaxed">
           <strong>Gifterra Pvt. Limited</strong><br />
@@ -57,17 +79,17 @@ const ContactUs = () => {
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-2xl font-semibold text-blue-800">Phone:</h3>
+        <h3 className="text-2xl font-semibold text-primary">Phone:</h3>
         <p className="text-gray-700">+91 7700043200</p>
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-2xl font-semibold text-blue-800">Email:</h3>
+        <h3 className="text-2xl font-semibold text-primary">Email:</h3>
         <p className="text-gray-700">gifterra@gmail.com</p>
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-2xl font-semibold text-blue-800">Call Timing:</h3>
+        <h3 className="text-2xl font-semibold text-primary">Call Timing:</h3>
         <p className="text-gray-700">10:00 AM to 8:00 PM</p>
       </div>
     </div>
@@ -90,6 +112,85 @@ const ContactUs = () => {
   </div>
 </div>
 
+<div className="max-w-3xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-center text-primary mb-6">Contact Us</h1>
+      <p className="text-lg text-center mb-8">
+        Have any questions or need assistance? We’re here to help!
+      </p>
+
+      {isSubmitted ? (
+        <div className="bg-green-100 border border-green-500 text-green-700 p-4 rounded-lg text-center mb-8">
+          <p>Thank you for contacting us! We will get back to you soon.</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your name"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter subject"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              rows="4"
+              placeholder="Write your message"
+            ></textarea>
+          </div>
+
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-primary text-white px-6 py-3 rounded-lg text-lg hover:bg-purple-900 transition duration-200"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
 
     </>
   );

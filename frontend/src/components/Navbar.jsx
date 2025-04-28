@@ -49,7 +49,7 @@ const Navbar = () => {
               )}
             </div>
             <a href="/contact" onClick={handleLinkClick} className="hover:text-pink-600 transition">Contact</a>
-            <a href="#" onClick={handleLinkClick} className="hover:text-pink-600 transition">Track Order</a>
+            <a href="/track" onClick={handleLinkClick} className="hover:text-pink-600 transition">Track Order</a>
             <a href="/blog" onClick={handleLinkClick} className="hover:text-pink-600 transition">Blog</a>
           </nav>
         )}

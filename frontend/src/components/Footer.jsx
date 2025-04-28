@@ -70,23 +70,23 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaLock className="mr-2 text-yellow-500" />
-              <a href="#">Privacy Policy</a>
+              <a href="/privacy">Privacy Policy</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaLock className="mr-2 text-yellow-500" />
-              <a href="#">Terms of Service</a>
+              <a href="/terms">Terms of Service</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaUndo className="mr-2 text-yellow-500" />
-              <a href="#">Refund Policy</a>
+              <a href="/refund">Refund Policy</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaShippingFast className="mr-2 text-yellow-500" />
-              <a href="#">Shipping Policy</a>
+              <a href="/shipping">Shipping Policy</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaTruck className="mr-2 text-yellow-500" />
-              <a href="#">Track Order</a>
+              <a href="/track">Track Order</a>
             </li>
           </ul>
         </div>
