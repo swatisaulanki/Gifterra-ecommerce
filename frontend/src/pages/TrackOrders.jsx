@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TrackOrder = () => {
+const TrackOrders = () => {
   const [orderId, setOrderId] = useState('');
   const [trackingData, setTrackingData] = useState(null);
 
@@ -72,4 +72,4 @@ const TrackOrder = () => {
   );
 };
 
-export default TrackOrder;
+export default TrackOrders;
