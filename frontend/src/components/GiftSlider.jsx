@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import swatis from "../assets/swati.png"
+import swatis from "../assets/swati.png";
 
 const products = [
   {
@@ -125,7 +125,7 @@ const GiftSlider = () => {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-60 object-cover rounded-lg"
+                  className="w-full h-60 object-cover rounded-lg" // Applying rounded-lg for a rectangular frame
                 />
                 <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
                   {product.discount}

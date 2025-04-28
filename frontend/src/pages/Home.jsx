@@ -136,7 +136,7 @@ const Home = () => {
 
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-6">
         {/* Bottle Card */}
-        <div className="flex-1 bg-gradient-to-br from-[#5a189a] to-[#7b2cbf] p-10 rounded-[40px] shadow-xl relative overflow-hidden flex flex-col items-center text-center">
+        <div className="flex-1 bg-gradient-to-br from-[#9a1894] to-[#61053b] p-10 rounded-[40px] shadow-xl relative overflow-hidden flex flex-col items-center text-center">
           <div className="absolute top-6 left-6 text-white text-2xl">✨</div>
           <div className="absolute top-12 right-10 text-white text-xl">⭐</div>
 
@@ -154,9 +154,9 @@ const Home = () => {
             Shop Now
           </button>
           <img
-            src="https://i.ibb.co/wRbdLfM/bottle.png"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCgw_b0ksiSDasOkJJCPfAA0ApKnrscYT0GA&s"
             alt="Bottle"
-            className="w-40 md:w-60 mt-10 z-10"
+            className="w-40 md:w-[100%]  rounded-2xl mt-10 z-10"
           />
         </div>
 
@@ -179,9 +179,9 @@ const Home = () => {
             Shop Now
           </button>
           <img
-            src="https://i.ibb.co/Pz5bdKt/kinder-joy.png"
+            src="https://i.ytimg.com/vi/Xn6Zg6IYIhs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCMwWXFbjXMKUm3Z8H2P27kcO-XAQ"
             alt="Kinder Joy"
-            className="w-40 md:w-60 mt-10 z-10"
+            className="w-40 md:w-[90%]  rounded-2xl mt-10 z-10"
           />
         </div>
       </div>
@@ -190,7 +190,7 @@ const Home = () => {
 
     </div>
 
-    <section className="relative w-full bg-gradient-to-br from-[#fff4ec] via-[#ffe6f7] to-[#fde2ff] overflow-hidden rounded-b-[80px] shadow-inner">
+    <section className="relative w-full bg-gradient-to-br from-[#c7c2c2] via-[#0b0b0b] to-[#151415] overflow-hidden rounded-b-[80px] shadow-inner">
       {/* Decorative glow orbs */}
       <div className="absolute top-10 left-10 w-40 h-40 bg-pink-200 opacity-20 blur-3xl rounded-full z-0" />
       <div className="absolute bottom-20 right-0 w-48 h-48 bg-yellow-100 opacity-30 blur-2xl rounded-full z-0" />
@@ -198,13 +198,13 @@ const Home = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-20 relative z-10">
         {/* Text Content */}
         <div className="md:w-1/2 text-center md:text-left space-y-6">
-          <h4 className="text-md md:text-lg text-gray-700 font-semibold uppercase tracking-widest">
+          <h4 className="text-md md:text-lg text-gray-200 font-semibold uppercase tracking-widest">
             Top Selling
           </h4>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight drop-shadow-sm">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-primary leading-tight drop-shadow-sm">
             Personalized Rose
           </h1>
-          <p className="text-gray-700 text-base md:text-lg max-w-md">
+          <p className="text-gray-200 text-base md:text-lg max-w-md">
             A touch of nature, personally yours. Eco-friendly & BPA-free to make your gifting healthier & sustainable.
           </p>
 
@@ -216,9 +216,9 @@ const Home = () => {
         {/* Image */}
         <div className="md:w-1/2 flex justify-center mt-10 md:mt-0 relative">
           <img
-            src="https://i.ibb.co/k5YFX8k/rose.png"
+            src="https://st2.depositphotos.com/4155699/6143/i/450/depositphotos_61431315-stock-photo-offering-a-red-rose.jpg"
             alt="Rose"
-            className="w-[300px] md:w-[380px] object-contain drop-shadow-xl"
+            className="w-[300px] rounded-full md:w-[380px] object-contain drop-shadow-xl"
           />
 
           {/* Floating text (e.g., names) */}
@@ -274,9 +274,9 @@ const Home = () => {
       {/* Left Image */}
       <div className="flex-1 flex justify-center items-center">
         <img 
-          src="/gift.png" 
+          src="https://jamescressflorist.com/cdn/shop/products/3adc6d473b9d414d28bc216a246a7786.jpg" 
           alt="Gift" 
-          className="w-56 md:w-72 object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-2xl"
+          className="w-56 md:w-72 rounded-full object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-2xl"
         />
       </div>
 
@@ -295,7 +295,7 @@ const Home = () => {
         {/* HDFC Logo */}
         <div className="mt-8 flex justify-center md:justify-start">
           <img 
-            src="/hdfc-logo.png" 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HDFC_Bank_Logo.svg/2560px-HDFC_Bank_Logo.svg.png" 
             alt="HDFC Bank" 
             className="w-44 transition-transform duration-500 hover:scale-110"
           />
@@ -305,9 +305,9 @@ const Home = () => {
       {/* Right Wallet Image */}
       <div className="flex-1 flex justify-center items-center">
         <img 
-          src="/wallet.png" 
+          src="https://media.istockphoto.com/id/1044799820/photo/woman-shopping-online-and-paying-with-a-credit-card-from-the-wallet-copy-space.jpg?s=612x612&w=0&k=20&c=FOGP9OwXuJ-7Jy8wP6CwTSAK0TC3ARQ2msKvm813AfY=" 
           alt="Wallet" 
-          className="w-52 md:w-64 object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-2xl"
+          className="w-52 md:w-64 rounded-lg object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-2xl"
         />
       </div>
 
@@ -372,9 +372,9 @@ const Home = () => {
         >
           <motion.img
             whileHover={{ scale: 1.05 }}
-            src="https://i.ibb.co/dW5tLmB/lion-bag.png"
+            src="https://hips.hearstapps.com/hmg-prod/images/full-school-backpack-isolated-on-pink-background-royalty-free-image-988445774-1564069074.jpg?crop=0.668xw:1.00xh;0.280xw,0&resize=1200:*"
             alt="Kids Lion Bag"
-            className="w-[250px] mx-auto lg:mx-0 transition-all duration-300"
+            className="w-[250px] mx-auto  rounded-full lg:mx-0 transition-all duration-300"
           />
         </motion.div>
 
@@ -424,6 +424,35 @@ const Home = () => {
     </div>
 
 
+    <div className="flex flex-col md:flex-row items-center justify-center gap-8 p-6 md:p-12 bg-gray-100">
+      {/* Watch Section */}
+      <motion.div 
+        className="bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-1/2"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <img 
+          src="https://lovecraftgift.com/cdn/shop/files/akls.jpg?v=1741761055" 
+          alt="Personalized Watch" 
+          className="w-full h-auto object-cover"
+        />
+      </motion.div>
+
+      {/* Gift Set Section */}
+      <motion.div 
+        className="bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-1/2"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <img 
+          src="https://lovecraftgift.com/cdn/shop/files/akls_1.jpg?v=1741761055" 
+          alt="Personalized Gift Set" 
+          className="w-full h-auto object-cover"
+        />
+      </motion.div>
+    </div>
 
 
 <SweetSurprises/>

@@ -11,6 +11,7 @@ import TermsOfService from './pages/TermsOfService';
 import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import TrackOrders from './pages/TrackOrders';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/track' element={<TrackOrders/>}/>
 
       </Routes>
+      <ScrollToTopButton/>
       <Footer/>
     </div>
   );

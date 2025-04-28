@@ -20,15 +20,15 @@ const CategorySlider = () => {
   const containerRef = useRef(null);
   const [index, setIndex] = useState(0);
 
-  // Auto slide every 2 seconds
+  // Auto slide every 0.5 second for faster speed (50% faster)
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % categories.length);
-    }, 2000);
+    }, 500); // 500 ms = 0.5 second (faster speed)
     return () => clearInterval(interval);
   }, []);
 
-  // Scroll to active item
+  // Scroll to active item with faster left-to-right scroll effect
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
@@ -52,12 +52,14 @@ const CategorySlider = () => {
             <div
               key={idx}
               className={`flex-shrink-0 flex flex-col items-center w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] 
-                transition-transform duration-300 hover:scale-105 relative ${cat.highlight ? "bg-gradient-to-br from-yellow-100 to-red-100 rounded-xl shadow-lg p-3" : ""}`}
+                transition-all duration-500 hover:scale-110 relative 
+                ${cat.highlight ? "bg-gradient-to-br from-yellow-100 to-red-200 rounded-xl shadow-xl p-4" : "bg-gray-100 rounded-lg shadow-md p-4"}`}
             >
               <img
                 src={cat.img}
                 alt={cat.name}
-                className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover border-2 ${cat.highlight ? "border-yellow-500 shadow-xl" : "border-primary"}`}
+                className={`w-20 h-24 sm:w-24 sm:h-28 md:w-28 md:h-40 lg:w-32 lg:h-48 rounded-lg object-cover 
+                ${cat.highlight ? "shadow-xl opacity-90 hover:opacity-100" : "opacity-80 hover:opacity-90"}`}
               />
               <p
                 className={`mt-2 text-xs sm:text-sm font-semibold ${cat.highlight ? "text-yellow-800" : "text-gray-800"} text-center`}
