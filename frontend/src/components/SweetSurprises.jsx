@@ -23,7 +23,7 @@ const items = [
 
 const SweetSurprises = () => {
   return (
-    <div className=" md:h-[600px] bg-white p-8">
+    <div className=" md:h-[600px] bg-white p-8 font-poppins">
       <h1 className="text-3xl font-bold mb-8">Sweet Surprises</h1>
       <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {items.map((item, index) => (

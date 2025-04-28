@@ -56,7 +56,7 @@ const ProductGrid = () => {
   };
 
   return (
-    <div className="  md:h-128 bg-gradient-to-br from-pink-50 to-blue-100 p-6">
+    <div className="  md:h-128 bg-gradient-to-br from-pink-50 font-poppins to-blue-100 p-6">
       <h1 className="text-3xl font-bold  text-gray-800 mb-8">
         Explore Our Exclusive Products
       </h1>

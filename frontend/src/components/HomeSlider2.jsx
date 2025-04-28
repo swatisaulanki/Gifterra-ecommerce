@@ -44,7 +44,7 @@ const HomeSlider2 = () => {
   }, [activeIndex]);
 
   return (
-    <div className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 py-5 shadow-lg border-t border-b border-gray-100">
+    <div className="w-full bg-gradient-to-r from-blue-500 font-poppins via-purple-500 to-pink-500 py-5 shadow-lg border-t border-b border-gray-100">
       <div className="w-full overflow-hidden px-4">
         <div
           ref={sliderRef}

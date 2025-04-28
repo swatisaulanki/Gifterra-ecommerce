@@ -16,7 +16,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 text-gray-800">
+    <footer className="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 text-gray-800 font-poppins">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Customer Care */}
         <div className="animate-fade-in">

@@ -102,7 +102,7 @@ const GiftSlider = () => {
   }, [direction]);
 
   return (
-    <div className="w-full px-4 py-10 bg-pink-50">
+    <div className="w-full px-4 py-10 font-poppins bg-pink-50">
       <h2 className="text-3xl font-bold mb-6">🎁 Gifts That You Like</h2>
       <Swiper
         ref={swiperRef}

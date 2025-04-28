@@ -128,7 +128,7 @@ const Home = () => {
     <CategorySlider/>
     <Slider/>
     <GiftSlider/>
-    <div className="w-full bg-gradient-to-b from-[#1f0036] via-[#2a0b4a] to-[#1f0036] px-4 py-16">
+    <div className="w-full bg-gradient-to-b from-[#1f0036] via-[#2a0b4a] to-[#1f0036] px-4 py-16 font-poppins">
       {/* Heading */}
       <h2 className="text-3xl md:text-5xl font-extrabold text-white  mb-12 tracking-wide">
         🛍️ Top <span className="text-purple-400">Selling</span> Products

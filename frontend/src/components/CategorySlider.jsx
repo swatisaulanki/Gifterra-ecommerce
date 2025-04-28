@@ -42,7 +42,7 @@ const CategorySlider = () => {
   }, [index]);
 
   return (
-    <div className="w-full bg-white py-5 shadow-md border-t border-b border-gray-100">
+    <div className="w-full bg-white py-5 shadow-md border-t font-poppins border-b border-gray-100">
       <div className="w-full overflow-hidden px-4">
         <div
           ref={containerRef}

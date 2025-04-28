@@ -21,7 +21,7 @@ const TrackOrders = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-4xl mx-auto px-4 py-8 font-poppins">
       <h1 className="text-3xl font-bold text-center text-primary mb-6">Track Your Order</h1>
 
       <div className="flex justify-center mb-6">

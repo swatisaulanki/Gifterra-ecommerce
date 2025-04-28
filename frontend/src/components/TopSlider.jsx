@@ -47,7 +47,7 @@ const TopSlider = () => {
   }, []);
 
   return (
-    <div className="relative bg-gradient-to-r from-primary via-red-500 to-secondary text-white w-full py-3 px-4 overflow-hidden">
+    <div className="relative bg-gradient-to-r font-poppins from-primary via-red-500 to-secondary text-white w-full py-3 px-4 overflow-hidden">
 
       {/* Social Icons (Desktop only) */}
       <div className="hidden md:flex fixed top-4 right-4 z-50 gap-3 bg-black/20 p-2 rounded-md">

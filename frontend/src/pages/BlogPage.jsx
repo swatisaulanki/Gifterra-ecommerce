@@ -29,7 +29,7 @@ const blogs = [
 
 const BlogPage = () => {
   return (
-    <div className="px-6 py-10 max-w-7xl mx-auto">
+    <div className="px-6 py-10 max-w-7xl mx-auto font-poppins">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-6">
         Home &gt; <span className="text-gray-700 font-medium">Blog</span>
