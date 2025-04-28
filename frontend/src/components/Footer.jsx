@@ -47,7 +47,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaHome className="mr-2 text-indigo-500" />
-              <a href="#">Collection</a>
+              <a href="/count">Collection</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaHome className="mr-2 text-indigo-500" />
@@ -55,7 +55,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaTruck className="mr-2 text-indigo-500" />
-              <a href="#">Track Order</a>
+              <a href="/track">Track Order</a>
             </li>
             <li className="flex items-center hover:translate-x-1 transition-transform duration-300">
               <FaBlog className="mr-2 text-indigo-500" />

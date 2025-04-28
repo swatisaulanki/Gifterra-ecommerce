@@ -122,9 +122,9 @@ const Navbar = () => {
               <li><a href="#" onClick={handleLinkClick} className="block hover:text-pink-600">Oil Painting</a></li>
             </ul>
           )}
-          <a href="#" onClick={handleLinkClick} className="block py-2 hover:text-pink-600">Contact</a>
-          <a href="#" onClick={handleLinkClick} className="block py-2 hover:text-pink-600">Track Order</a>
-          <a href="#" onClick={handleLinkClick} className="block py-2 hover:text-pink-600">Blog</a>
+          <a href="/contact" onClick={handleLinkClick} className="block py-2 hover:text-pink-600">Contact</a>
+          <a href="/track" onClick={handleLinkClick} className="block py-2 hover:text-pink-600">Track Order</a>
+          <a href="/blog" onClick={handleLinkClick} className="block py-2 hover:text-pink-600">Blog</a>
 
           {/* Account and Cart Icons inside Sidebar */}
           <div className="flex items-center gap-4 mt-6">
