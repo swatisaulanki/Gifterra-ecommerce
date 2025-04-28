@@ -21,7 +21,6 @@ const HomeSlider2 = () => {
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto scroll every 2 seconds for all screens (mobile, md, lg)
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % categoriesData.length);
@@ -30,7 +29,6 @@ const HomeSlider2 = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Scroll to active item (for all screens)
   useEffect(() => {
     if (sliderRef.current) {
       const slider = sliderRef.current;
@@ -44,11 +42,11 @@ const HomeSlider2 = () => {
   }, [activeIndex]);
 
   return (
-    <div className="w-full bg-gradient-to-r from-blue-500 font-poppins via-purple-500 to-pink-500 py-5 shadow-lg border-t border-b border-gray-100">
+    <div className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 py-6 shadow-lg border-t border-b border-gray-100">
       <div className="w-full overflow-hidden px-4">
         <div
           ref={sliderRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
+          className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth"
         >
           {categoriesData.map((category, index) => (
             <motion.div
@@ -56,25 +54,31 @@ const HomeSlider2 = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`flex-shrink-0 flex flex-col items-center w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] 
-                transition-transform duration-300 hover:scale-105 relative p-2 rounded-lg shadow-xl bg-gradient-to-br 
-                from-indigo-300 via-blue-300 to-purple-400 hover:from-purple-400 hover:via-indigo-300 hover:to-pink-300
-                hover:shadow-2xl`}
+              className="flex-shrink-0 flex flex-col items-center 
+                w-[150px] sm:w-[170px] md:w-[190px] lg:w-[220px] 
+                p-4 bg-white rounded-3xl shadow-xl hover:shadow-2xl 
+                transition-all duration-500 border-2 border-gray-200 relative"
             >
               <img
                 src={category.img}
                 alt={category.name}
-                className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover border-4 
-                  ${category.highlight ? "border-yellow-500 shadow-xl" : "border-white"}`}
+                className={`w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 
+                  object-cover rounded-2xl border-4 p-1
+                  ${category.highlight 
+                    ? "border-yellow-400 shadow-lg" 
+                    : "border-gradient-to-br from-purple-400 via-blue-400 to-pink-400"
+                  }
+                  transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl
+                `}
               />
               <p
-                className={`mt-2 text-xs sm:text-sm font-semibold text-white text-center transition-all duration-300
-                  ${category.highlight ? "text-yellow-800" : "text-gray-800"} `}
+                className={`mt-3 text-sm sm:text-base font-semibold text-center
+                  ${category.highlight ? "text-yellow-700" : "text-gray-700"}`}
               >
                 {category.name}
               </p>
               {category.highlight && (
-                <span className="absolute top-0 right-0 bg-yellow-400 text-xs px-2 py-0.5 rounded-bl-lg rounded-tr-md text-white font-bold shadow-md">
+                <span className="absolute top-2 right-2 bg-yellow-400 text-[10px] px-2 py-1 rounded-full text-white font-bold shadow-md">
                   NEW
                 </span>
               )}

@@ -244,11 +244,16 @@ const Home = () => {
               className={`flex-shrink-0 flex flex-col items-center w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] 
                 transition-transform duration-300 hover:scale-105 relative ${cat.highlight ? "bg-gradient-to-br from-yellow-100 to-red-100 rounded-xl shadow-lg p-3" : ""}`}
             >
-              <img
-                src={cat.img}
-                alt={cat.name}
-                className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover border-2 ${cat.highlight ? "border-yellow-500 shadow-xl" : "border-primary"}`}
-              />
+<img
+  src={cat.img}
+  alt={cat.name}
+  className={`w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 
+    object-cover rounded-2xl border-4 p-1
+    ${cat.highlight ? "border-yellow-500 shadow-lg" : "border-primary"}
+    transition-transform duration-300 ease-in-out hover:scale-105
+  `}
+/>
+
               <p
                 className={`mt-2 text-xs sm:text-sm font-semibold ${cat.highlight ? "text-yellow-800" : "text-gray-800"} text-center`}
               >
