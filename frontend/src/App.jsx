@@ -12,6 +12,7 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import TrackOrders from './pages/TrackOrders';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import CountdownBanner from './components/CountdownBanner';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/refund' element={<RefundPolicy/>}/>
         <Route path='/shipping' element={<ShippingPolicy/>}/>
         <Route path='/track' element={<TrackOrders/>}/>
+        <Route path='/count' element={<CountdownBanner/>}/>
 
       </Routes>
       <ScrollToTopButton/>

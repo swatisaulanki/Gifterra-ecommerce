@@ -40,8 +40,8 @@ const Navbar = () => {
                 Collection <span className="transform group-hover:rotate-180 transition-transform">▾</span>
               </button>
               {dropdownOpen && (
-                <ul className="absolute top-8 left-0 bg-white shadow-md rounded-md p-2 space-y-2 z-40 w-48">
-                  <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">All Collections</a></li>
+                <ul className="absolute top-8 left-0 bg-white text-black shadow-md rounded-md p-2 space-y-2 z-40 w-48">
+                  <li><a href="/count" className="block px-4 py-2 hover:bg-gray-100">All Collections</a></li>
                   <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Best Selling</a></li>
                   <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Kids Items</a></li>
                   <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Oil Painting</a></li>
@@ -106,7 +106,7 @@ const Navbar = () => {
 
       {/* Mobile Sidebar */}
       {isOpen && !searchOpen && (
-        <div className="md:hidden bg-white px-4 pb-6 pt-2 absolute w-full shadow-md z-40">
+        <div className="md:hidden bg-white text-black px-4 pb-6 pt-2 absolute w-full shadow-md z-40">
           <a href="#" onClick={handleLinkClick} className="block py-2 hover:text-pink-600">Home</a>
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -116,7 +116,7 @@ const Navbar = () => {
           </button>
           {dropdownOpen && (
             <ul className="pl-4 space-y-1">
-              <li><a href="#" onClick={handleLinkClick} className="block hover:text-pink-600">All Collections</a></li>
+              <li><a href="/count" onClick={handleLinkClick} className="block hover:text-pink-600">All Collections</a></li>
               <li><a href="#" onClick={handleLinkClick} className="block hover:text-pink-600">Best Selling</a></li>
               <li><a href="#" onClick={handleLinkClick} className="block hover:text-pink-600">Kids Items</a></li>
               <li><a href="#" onClick={handleLinkClick} className="block hover:text-pink-600">Oil Painting</a></li>
