@@ -1,156 +1,121 @@
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-const products = [
-  {
-    id: 1,
-    title: "Personalized 12-Piece Pencil Set",
-    price: "Rs. 168.00",
-    oldPrice: "Rs. 200.00",
-    image: "https://lovecraftgift.com/cdn/shop/products/woodenphotoshadowbox_1.jpg?v=1656345558&width=450",
-    designs: ["Floral Pink", "Cool Blue", "Sunshine Yellow"],
-  },
-  {
-    id: 2,
-    title: " Kids Thermo Bottle",
-    price: "Rs. 469.00",
-    oldPrice: "Rs. 586.00",
-    image: "https://lovecraftgift.com/cdn/shop/files/1_17.jpg?v=1743758475&width=450",
-    designs: ["Bamboo Panda (Cream Color)", "Walnut Duck (Blue Color)"],
-  },
-  {
-    id: 3,
-    title: "Custom Kids Name Keychain",
-    price: "Rs. 99.00",
-    oldPrice: "Rs. 129.00",
-    image: "https://lovecraftgift.com/cdn/shop/files/02_da664572-7216-425a-b4ba-1f66cdf7b2a8.jpg?v=1744696863&width=450",
-    designs: ["Spiderman", "Unicorn", "Dino Green"],
-  },
-  {
-    id: 4,
-    title: "Kids Cartoon School Bag",
-    price: "Rs. 699.00",
-    oldPrice: "Rs. 899.00",
-    image: "https://lovecraftgift.com/cdn/shop/files/7_7113f721-e16a-41c1-8cf8-6b9f87e851f9.jpg?v=1743137301&width=750",
-    designs: ["Mickey Mouse", "Peppa Pig", "Doraemon"],
-  },
-  {
-    id: 5,
-    title: "Kids Cartoon School Bag",
-    price: "Rs. 699.00",
-    oldPrice: "Rs. 899.00",
-    image: "https://lovecraftgift.com/cdn/shop/files/front_1.jpg?v=1739364819&width=450",
-    designs: ["Mickey Mouse", "Peppa Pig", "Doraemon"],
-  },
-  {
-    id: 6,
-    title: "Kids Cartoon School Bag",
-    price: "Rs. 699.00",
-    oldPrice: "Rs. 899.00",
-    image: "https://lovecraftgift.com/cdn/shop/files/o4.jpg?v=1744089358&width=450",
-    designs: ["Mickey Mouse", "Peppa Pig", "Doraemon"],
-  },
-  {
-    id: 7,
-    title: "Kids Cartoon School Bag",
-    price: "Rs. 699.00",
-    oldPrice: "Rs. 899.00",
-    image: "https://lovecraftgift.com/cdn/shop/files/o4.jpg?v=1744089358&width=450",
-    designs: ["Mickey Mouse", "Peppa Pig", "Doraemon"],
-  },
-];
+import React, { useState, useEffect } from 'react';
+import { FaCartPlus, FaSearch, FaTimes } from 'react-icons/fa';
+import CartSidebar from './CartSidebar';
 
 const ShopProductCard = () => {
+  const [products, setProducts] = useState([]);
   const [expandedProductId, setExpandedProductId] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const handleChoose = (productId) => setExpandedProductId(productId);
-  const handleClose = () => setExpandedProductId(null);
-  const handleAddToCart = (product) => setCart([...cart, product]);
-  const handleViewDetails = (product) => alert(`Viewing details of ${product.title}`);
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      });
+  }, []);
+
+  const handleChoose = (productId) => {
+    setExpandedProductId(productId);
+  };
+
+  const handleClose = () => {
+    setExpandedProductId(null);
+  };
+
+  const handleAddToCart = (product) => {
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) {
+      setCart(cart.map(item =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      ));
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+    setIsCartOpen(true);
+  };
+
+  const handleUpdateQuantity = (itemId, action) => {
+    setCart(prev =>
+      prev.map(item => {
+        if (item.id === itemId) {
+          const newQty = action === "increment" ? item.quantity + 1 : item.quantity - 1;
+          return { ...item, quantity: newQty > 0 ? newQty : 1 };
+        }
+        return item;
+      })
+    );
+  };
+
+  const handleDeleteItem = (itemId) => {
+    setCart(prev => prev.filter(item => item.id !== itemId));
+  };
+
+  const handleViewDetails = (product) => {
+    alert(`Viewing details of ${product.title}`);
+  };
 
   return (
-    <div className="bg-gradient-to-br from-pink-50 to-blue-100 py-10 px-6">
-      <h1 className="text-3xl font-bold  text-gray-800 mb-10 font-poppins">
-        Explore Our Exclusive Products
-      </h1>
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-blue-100 p-6 font-poppins">
+      <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-10">Explore Top Deals</h1>
 
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={1}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
-        }}
-        navigation
-        pagination={{ clickable: true }}
-        modules={[Navigation, Pagination]}
-      >
-        {products.map((product) => (
-          <SwiperSlide key={product.id}>
+      {loading ? (
+        <div className="text-center text-lg font-medium text-gray-600">Loading products...</div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
             <div
-              className={`relative rounded-xl overflow-hidden bg-white shadow-lg transition-all duration-500 ${
-                expandedProductId === product.id ? "scale-105 z-20" : ""
+              key={product.id}
+              className={`relative bg-white rounded-xl shadow-xl transition-transform transform duration-300 hover:scale-105 ${
+                expandedProductId === product.id ? 'z-20 scale-105' : ''
               }`}
             >
               {expandedProductId === product.id ? (
-                <div className="absolute inset-0 flex h-[300px] flex-col items-center justify-center bg-white p-6 space-y-4 animate-fadeIn z-30">
+                <div className="absolute inset-0 flex flex-col justify-center items-center bg-white p-6 z-50">
                   <button
                     onClick={handleClose}
-                    className="absolute top-3 right-3 text-2xl font-bold text-gray-600 hover:text-pink-600"
+                    className="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-xl"
                   >
-                    ✕
+                    <FaTimes />
                   </button>
-                  <h2 className="text-lg font-semibold text-center text-gray-800">
-                    {product.title}
-                  </h2>
-                  <p className="text-pink-600 text-md font-bold">{product.price}</p>
-                  <h3 className="text-sm font-medium">Choose Design:</h3>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {product.designs.map((design, index) => (
-                      <button
-                        key={index}
-                        className="px-3 py-1 text-xs rounded-full border border-pink-400 text-pink-600 hover:bg-pink-100 transition"
-                      >
-                        {design}
-                      </button>
-                    ))}
-                  </div>
-                  <div className="flex gap-4 mt-4">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="h-32 object-contain mb-4"
+                  />
+                  <h2 className="text-lg font-bold text-center text-gray-800">{product.title}</h2>
+                  <p className="text-pink-600 font-bold mt-2 text-sm">Rs. {Math.floor(product.price * 83)}</p>
+                  <p className="text-gray-600 text-sm text-center mt-2 line-clamp-3">{product.description}</p>
+                  <div className="flex gap-4 mt-4 w-full justify-center">
                     <button
                       onClick={() => handleAddToCart(product)}
-                      className="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 text-sm"
+                      className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-md flex items-center gap-2 text-sm"
                     >
-                      Add to Cart
+                      <FaCartPlus /> Add to Cart
                     </button>
                     <button
                       onClick={() => handleViewDetails(product)}
-                      className="border border-pink-600 text-pink-600 px-4 py-2 rounded-md hover:bg-pink-100 text-sm"
+                      className="border border-pink-600 text-pink-600 px-4 py-2 rounded-md flex items-center gap-2 text-sm hover:bg-pink-100"
                     >
-                      View Details
+                      <FaSearch /> View
                     </button>
                   </div>
                 </div>
               ) : (
-                <div className="relative group">
+                <div className="group">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-56 object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-56 object-contain p-4 transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="p-4 bg-white text-center">
-                    <h2 className="text-sm font-semibold text-gray-800">{product.title}</h2>
-                    <div className="flex justify-center items-center gap-2 mt-1">
-                      <span className="text-pink-600 font-bold text-sm">{product.price}</span>
-                      <span className="line-through text-gray-400 text-xs">{product.oldPrice}</span>
-                    </div>
+                    <h2 className="text-sm font-semibold text-gray-700 line-clamp-2">{product.title}</h2>
+                    <p className="text-pink-600 font-bold text-sm mt-1">Rs. {Math.floor(product.price * 83)}</p>
                   </div>
-                  <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                  <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
                     <button
                       onClick={() => handleChoose(product.id)}
                       className="bg-white text-pink-600 font-semibold px-4 py-2 rounded-md text-xs hover:bg-pink-100"
@@ -161,9 +126,18 @@ const ShopProductCard = () => {
                 </div>
               )}
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </div>
+      )}
+
+      {/* Cart Sidebar component */}
+      <CartSidebar
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cart}
+        onUpdateQuantity={handleUpdateQuantity}
+        onDeleteItem={handleDeleteItem}
+      />
     </div>
   );
 };
