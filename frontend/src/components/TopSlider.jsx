@@ -76,9 +76,11 @@ const TopSlider = () => {
           <button className="bg-primary text-white px-5 py-2 text-sm rounded hover:bg-secondary transition">
             Car Manager
           </button>
+          <a href="/shop">
           <button className="bg-primary text-white px-5 py-2 text-sm rounded hover:bg-secondary transition">
             Shop Now
           </button>
+</a>
         </div>
 
         {/* Desktop Only Content */}

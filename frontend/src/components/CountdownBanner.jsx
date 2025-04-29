@@ -16,7 +16,7 @@ const CountdownBanner = () => {
       const now = new Date();
       const difference = targetDate - now;
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const days = Math.floor(difference / (1000 * 60 * 60 *13));
       const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((difference / (1000 * 60)) % 60);
       const seconds = Math.floor((difference / 1000) % 60);

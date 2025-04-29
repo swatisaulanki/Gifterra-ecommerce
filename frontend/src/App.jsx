@@ -13,6 +13,7 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import TrackOrders from './pages/TrackOrders';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import CountdownBanner from './components/CountdownBanner';
+import ShopProductpage from './pages/ShopProductpage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/shipping' element={<ShippingPolicy/>}/>
         <Route path='/track' element={<TrackOrders/>}/>
         <Route path='/count' element={<CountdownBanner/>}/>
+        <Route path='/shop' element={<ShopProductpage/>}/>
 
       </Routes>
       <ScrollToTopButton/>
