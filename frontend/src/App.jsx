@@ -14,6 +14,9 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import CountdownBanner from './components/CountdownBanner';
 import ShopProductpage from './pages/ShopProductpage';
 import CheckoutPage from './pages/CheckoutPage';
+import OrderPlacedPage from './pages/OrderPlacedPage';
+import Login from './pages/Login/Login';
+import Register from './pages/Login/Register';
 
 function App() {
 
@@ -33,6 +36,10 @@ function App() {
         <Route path='/count' element={<CountdownBanner />} />
         <Route path='/shop' element={<ShopProductpage/>} />
         <Route path='/checkout' element={<CheckoutPage/>} />
+        <Route path="/orderplaced" element={<OrderPlacedPage />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register />} />
+
       </Routes>
       <ScrollToTopButton />
       <Footer />

@@ -1,15 +1,26 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom'; // Import useLocation to access passed state
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CheckoutPage = () => {
-  const location = useLocation(); // Get location from React Router
-  const { cartItems } = location.state || { cartItems: [] }; // Default to empty array if no data
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Calculate the total amount
+  const { cartItems } = location.state || { cartItems: [] };
+  const [paymentMethod, setPaymentMethod] = useState('COD');
+
   const totalAmount = cartItems.reduce(
     (total, item) => total + Math.floor(item.price * 83) * item.quantity,
     0
   );
+
+  const handlePlaceOrder = (e) => {
+    e.preventDefault();
+
+    // Optional: save order data to localStorage or backend
+
+    alert(`Order placed successfully!\nPayment Method: ${paymentMethod}\nTotal: ₹${totalAmount}`);
+    navigate('/orderplaced'); // 👈 Navigate to the success page
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-pink-50 p-6 font-poppins">
@@ -18,12 +29,12 @@ const CheckoutPage = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Billing Form */}
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handlePlaceOrder}>
             <input
               name="name"
               required
               placeholder="Full Name"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-pink-200"
+              className="w-full p-3 border rounded-md focus:outline-none"
             />
             <input
               name="email"
@@ -41,7 +52,6 @@ const CheckoutPage = () => {
             />
             <input
               name="pincode"
-              type="text"
               required
               placeholder="Pin Code"
               className="w-full p-3 border rounded-md"
@@ -52,6 +62,27 @@ const CheckoutPage = () => {
               placeholder="Full Address"
               className="w-full p-3 border rounded-md resize-none h-24"
             />
+
+            {/* Payment Method */}
+            <div>
+              <h3 className="font-semibold text-gray-700 mb-2">Payment Method</h3>
+              <div className="space-y-2">
+                {['COD', 'UPI', 'Card', 'Net Banking'].map((method) => (
+                  <label key={method} className="flex items-center gap-2 text-sm">
+                    <input
+                      type="radio"
+                      value={method}
+                      name="payment"
+                      checked={paymentMethod === method}
+                      onChange={() => setPaymentMethod(method)}
+                      className="accent-pink-600"
+                    />
+                    {method === 'COD' ? 'Cash on Delivery' : method}
+                  </label>
+                ))}
+              </div>
+            </div>
+
             <button
               type="submit"
               className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-md transition"
@@ -63,15 +94,22 @@ const CheckoutPage = () => {
           {/* Order Summary */}
           <div className="bg-gray-50 p-6 rounded-md shadow-inner">
             <h2 className="text-lg font-semibold text-gray-700 mb-4">Order Summary</h2>
-            <div className="flex justify-between mb-2">
-              <span className="text-gray-600">Subtotal</span>
-              <span>₹{totalAmount}</span>
+            <div className="space-y-2 text-sm">
+              {cartItems.map((item, index) => (
+                <div key={index} className="flex justify-between">
+                  <span>{item.title} x {item.quantity}</span>
+                  <span>₹{Math.floor(item.price * 83) * item.quantity}</span>
+                </div>
+              ))}
             </div>
-            <div className="flex justify-between mb-2">
-              <span className="text-gray-600">Shipping</span>
+
+            <div className="flex justify-between mt-4 text-gray-600">
+              <span>Shipping</span>
               <span>Free</span>
             </div>
+
             <hr className="my-4" />
+
             <div className="flex justify-between font-bold text-lg">
               <span>Total</span>
               <span>₹{totalAmount}</span>

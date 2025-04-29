@@ -1,5 +1,6 @@
 import { useState } from "react";
 import swatiss from "../assets/gifterras.jpeg";
+import { Link } from "react-router-dom"; // Make sure this import is at the top
 
 import {
   FaBars,
@@ -71,7 +72,13 @@ const Navbar = () => {
             <>
               <button onClick={() => setSearchOpen(true)} className="text-xl text-white"><FaSearch /></button>
               <div className="hidden md:flex gap-4">
-                <button className="text-xl text-white"><FaUser /></button>
+              <Link to="/login" className="text-xl text-gray-800">
+              <button className="text-xl text-white">  <FaUser />
+              </button>
+
+</Link>
+               
+               
                 <button className="text-xl text-white"><FaShoppingCart /></button>
               </div>
               <button onClick={() => setIsOpen(!isOpen)} className="text-xl text-white md:hidden">
