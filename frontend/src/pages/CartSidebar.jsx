@@ -43,7 +43,7 @@ const CartSidebar = ({
                   <span className="line-through text-gray-400 mr-2">
                     Rs. {Math.floor(item.price * 83) + 200}
                   </span>
-                  <span className="text-[#a8783f] font-semibold">
+                  <span className="text-primary font-semibold">
                     Rs. {Math.floor(item.price * 83)}
                   </span>
                 </div>
@@ -79,7 +79,7 @@ const CartSidebar = ({
         <div className="border-t pt-4 mt-4 px-4 pb-6 space-y-4">
           <div className="flex justify-between items-center">
             <span className="text-lg font-semibold">Total</span>
-            <span className="text-lg text-[#a8783f] font-bold">
+            <span className="text-lg text-primary font-bold">
               Rs.{' '}
               {cartItems.reduce(
                 (total, item) => total + Math.floor(item.price * 83) * item.quantity,
@@ -90,7 +90,7 @@ const CartSidebar = ({
 
           <button
             onClick={handleCheckout}
-            className="w-full bg-[#a8783f] hover:bg-[#946b39] text-white py-3 rounded-lg text-center font-medium text-lg transition duration-300"
+            className="w-full bg-[#891774] hover:bg-[#4d1b58] text-white py-3 rounded-lg text-center font-medium text-lg transition duration-300"
           >
             Proceed to Checkout
           </button>
