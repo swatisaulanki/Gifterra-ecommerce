@@ -16,10 +16,12 @@ const WhatsAppFloat = () => {
   const message = "Hi, I want to know more about Gifterra";
   const encodedMessage = encodeURIComponent(message);
 
-  // Use only web.whatsapp.com for desktop to avoid api.whatsapp.com
+  // Detect mobile devices using userAgent
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  // For mobile devices, use wa.me URL; for desktop, use web.whatsapp.com
   const whatsappURL = isMobile
-    ? `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}` // still safe for mobile fallback
+    ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   return (
