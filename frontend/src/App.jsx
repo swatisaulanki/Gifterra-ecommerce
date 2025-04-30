@@ -18,6 +18,7 @@ import OrderPlacedPage from './pages/OrderPlacedPage';
 import Login from './pages/Login/Login';
 import Register from './pages/Login/Register';
 import CartSidebar from './pages/CartSidebar';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
 
       </Routes>
       <ScrollToTopButton />
+      <ScrollToTop/>
       <Footer />
     </div>
   );
