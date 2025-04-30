@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ShopProductCard from "./ShopProductCard";
 
-const tabs = ["Best Selling", "Kids Zone", "Birthday Special", "Anniversary Special"];
+const tabs = ["Best Selling", "Kids Zone", "Birthday Special"];
 
 const sampleProducts = [
   {
