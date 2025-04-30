@@ -12,6 +12,16 @@ const WhatsAppFloat = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const phoneNumber = "918378086293";
+  const message = "Hi, I want to know more about Gifterra";
+  const encodedMessage = encodeURIComponent(message);
+
+  // Use only web.whatsapp.com for desktop to avoid api.whatsapp.com
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const whatsappURL = isMobile
+    ? `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}` // still safe for mobile fallback
+    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
       {showMessage && (
@@ -21,7 +31,7 @@ const WhatsAppFloat = () => {
       )}
 
       <a
-        href="https://wa.me/918378086293?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Gifterra"
+        href={whatsappURL}
         target="_blank"
         rel="noopener noreferrer"
         className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
