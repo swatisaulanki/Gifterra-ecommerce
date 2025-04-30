@@ -1,14 +1,19 @@
 import React from 'react';
 import { AiOutlineClose, AiOutlineDelete } from 'react-icons/ai';
 import { FiMinus, FiPlus } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom'; // Import navigate for routing
+import { useNavigate } from 'react-router-dom';
 
-const CartSidebar = ({ isOpen, onClose, cartItems, onUpdateQuantity, onDeleteItem }) => {
-  const navigate = useNavigate(); // Initialize the navigate function
+const CartSidebar = ({
+  isOpen,
+  onClose,
+  cartItems = [], // default value to prevent undefined
+  onUpdateQuantity,
+  onDeleteItem,
+}) => {
+  const navigate = useNavigate();
 
   // Handle proceeding to checkout
   const handleCheckout = () => {
-    // Pass the cartItems to the checkout page using navigate
     navigate('/checkout', { state: { cartItems } });
   };
 
@@ -35,8 +40,12 @@ const CartSidebar = ({ isOpen, onClose, cartItems, onUpdateQuantity, onDeleteIte
               <div className="flex-1">
                 <h3 className="text-sm font-medium text-gray-800">{item.title}</h3>
                 <div className="mt-1">
-                  <span className="line-through text-gray-400 mr-2">Rs. {Math.floor(item.price * 83) + 200}</span>
-                  <span className="text-[#a8783f] font-semibold">Rs. {Math.floor(item.price * 83)}</span>
+                  <span className="line-through text-gray-400 mr-2">
+                    Rs. {Math.floor(item.price * 83) + 200}
+                  </span>
+                  <span className="text-[#a8783f] font-semibold">
+                    Rs. {Math.floor(item.price * 83)}
+                  </span>
                 </div>
 
                 {/* Quantity Control */}
@@ -71,11 +80,14 @@ const CartSidebar = ({ isOpen, onClose, cartItems, onUpdateQuantity, onDeleteIte
           <div className="flex justify-between items-center">
             <span className="text-lg font-semibold">Total</span>
             <span className="text-lg text-[#a8783f] font-bold">
-              Rs. {cartItems.reduce((total, item) => total + Math.floor(item.price * 83) * item.quantity, 0)}
+              Rs.{' '}
+              {cartItems.reduce(
+                (total, item) => total + Math.floor(item.price * 83) * item.quantity,
+                0
+              )}
             </span>
           </div>
 
-          {/* Checkout Button */}
           <button
             onClick={handleCheckout}
             className="w-full bg-[#a8783f] hover:bg-[#946b39] text-white py-3 rounded-lg text-center font-medium text-lg transition duration-300"

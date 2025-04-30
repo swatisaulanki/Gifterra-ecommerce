@@ -17,6 +17,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderPlacedPage from './pages/OrderPlacedPage';
 import Login from './pages/Login/Login';
 import Register from './pages/Login/Register';
+import CartSidebar from './pages/CartSidebar';
 
 function App() {
 
