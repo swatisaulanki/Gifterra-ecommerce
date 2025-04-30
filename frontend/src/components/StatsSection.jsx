@@ -41,7 +41,7 @@ const StatsSection = () => {
   }, []);
 
   return (
-    <section className="w-full py-12 bg-white">
+    <section className="w-full py-12 bg-white font-poppins">
       <div className="md:grid md:grid-cols-4 gap-8 text-center max-w-6xl mx-auto px-4 hidden ">
         {stats.map((stat, index) => (
           <motion.div

@@ -23,7 +23,7 @@ const ShopProductpage = () => {
   return (
     <>
     
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-8 font-poppins">
       {/* Container */}
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
         

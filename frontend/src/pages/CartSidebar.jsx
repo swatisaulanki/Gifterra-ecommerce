@@ -19,7 +19,7 @@ const CartSidebar = ({
 
   return (
     <div
-      className={`fixed top-0 right-0 h-full w-[700px] max-w-full bg-white shadow-lg z-50 overflow-y-auto transition-transform duration-300 ${
+      className={`fixed top-0 right-0 h-full w-[700px] font-poppins max-w-full bg-white shadow-lg z-50 overflow-y-auto transition-transform duration-300 ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}
     >

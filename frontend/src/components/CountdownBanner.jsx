@@ -33,7 +33,7 @@ const CountdownBanner = () => {
 
   return (
 <>
-<div className="relative bg-pink-300 overflow-hidden rounded-xl p-6 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+<div className="relative bg-pink-300 overflow-hidden font-poppins rounded-xl p-6 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
       
       {/* Left Side: New Products + Image */}
       <div className="flex items-center gap-4 z-10">

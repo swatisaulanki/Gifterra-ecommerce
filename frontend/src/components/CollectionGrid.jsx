@@ -26,7 +26,7 @@ const visibleCollections = collections.slice(0, 20);
 
 const CollectionGrid = () => {
   return (
-    <div className="px-6 md:px-8 py-10">
+    <div className="px-6 md:px-8 py-10 font-poppins">
       <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10">Collections</h2>
       
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">

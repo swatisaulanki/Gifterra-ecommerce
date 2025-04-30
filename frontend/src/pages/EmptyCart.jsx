@@ -36,7 +36,7 @@ const EmptyCart = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 font-poppins">
       <button
         onClick={handleCartOpen}
         className="bg-[#a8783f] hover:bg-[#946b39] text-white px-4 py-2 rounded"

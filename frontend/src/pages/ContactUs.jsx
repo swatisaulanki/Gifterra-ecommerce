@@ -27,7 +27,7 @@ const ContactUs = () => {
 
   return (
     <>
-<div className="relative w-full h-[60vh]  md:h-[60vh] flex items-center justify-center overflow-hidden">
+<div className="relative w-full h-[60vh]  font-poppins md:h-[60vh] flex items-center justify-center overflow-hidden">
   {/* Background Image */}
   <img 
     src="https://img.freepik.com/premium-photo/man-showing-contact-symbols-social-media-internet_220873-7127.jpg?semt=ais_hybrid&w=740" 

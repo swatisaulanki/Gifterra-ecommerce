@@ -43,7 +43,7 @@ const Slider = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full font-poppins">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={0}

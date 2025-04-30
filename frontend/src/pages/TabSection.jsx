@@ -23,7 +23,7 @@ const TabSection = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <div className="w-full py-10 px-4 sm:px-10">
+    <div className="w-full py-10 px-4 sm:px-10 font-poppins">
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Top-Trending</h2>
 
       {/* Tabs */}
