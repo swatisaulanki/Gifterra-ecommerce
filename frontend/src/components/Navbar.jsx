@@ -213,7 +213,7 @@ const Navbar = () => {
         {isOpen && !searchOpen && (
           <div className="md:hidden bg-white text-black px-4 pb-6 pt-2 absolute w-full shadow-md z-40">
             <a
-              href="#"
+              href="/"
               onClick={handleLinkClick}
               className="block py-2 hover:text-pink-600"
             >
