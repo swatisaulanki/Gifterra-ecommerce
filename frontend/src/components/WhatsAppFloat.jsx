@@ -28,7 +28,7 @@ const WhatsAppFloat = () => {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
       {showMessage && (
         <div className="bg-white text-gray-800 shadow-lg text-sm px-4 py-2 rounded-lg animate-bounce mb-1">
-          How can I help you?
+          Hi! How can I help you right now?
         </div>
       )}
 
