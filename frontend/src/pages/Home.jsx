@@ -8,6 +8,7 @@ import CategorySlider from "../components/CategorySlider";
 import GiftSlider from "../components/GiftSlider";
 import Slider from "../components/Slider";
 import WhatsAppFloat from "../components/WhatsAppFloat";
+import StatsSection from "../components/StatsSection";
 
 const Home = () => {
   const products = [
@@ -473,6 +474,8 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <StatsSection/>
+
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 p-6 md:p-12 bg-gray-100">
         {/* Watch Section */}
@@ -503,7 +506,6 @@ const Home = () => {
           />
         </motion.div>
       </div>
-
       <SweetSurprises />
       <WhatsAppFloat/>
     </>
