@@ -1,7 +1,6 @@
 # 🎁 Gifterra - E-commerce Web Application
 
-**Gifterra** is a modern and user-friendly full-stack e-commerce application where users can browse, filter, and shop for a wide range of products. It features user authentication, cart management, wishlist, product filtering, and secure checkout.
-
+Gifterra is a fully responsive and user-friendly e-commerce web application built for a premium gifting experience. It offers a wide range of curated products across categories like home décor, personalized gifts, kids’ items, oil paintings, and more — with smooth navigation and a visually engaging interface.
 ---
 
 ## 🚀 Live Demo
