@@ -4,7 +4,7 @@ const blogs = [
   {
     id: 1,
     title: "4 Hot Holiday & New Year Gift Suggestions",
-    author: "Swatiskrush",
+    author: "Swatuskrush",
     date: "jan 2 2025",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ygaj9NRnWME0SZlRajv3jcUH2haNvbjj9RhuHuZcCa3avT0_QJLEVrBZSkZy1LQaurs&usqp=CAU", // replace with your images
     link: "/blog/holiday-newyear-gifts",

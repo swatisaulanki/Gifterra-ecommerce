@@ -1,5 +1,5 @@
 import { useState } from "react";
-import swatiss from "../assets/gifterras.jpeg";
+import swatus from "../assets/gifterras.jpeg";
 import { Link } from "react-router-dom"; // Make sure this import is at the top
 
 import {
@@ -139,7 +139,7 @@ const Navbar = () => {
           {!searchOpen && (
             <div className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold text-gray-800">
               <img
-                src={swatiss}
+                src={swatus}
                 alt="Gifterra Logo"
                 className="w-36 h-20 sm:w-24 sm:h-24 md:w-36 md:h-15 object-contain"
               />

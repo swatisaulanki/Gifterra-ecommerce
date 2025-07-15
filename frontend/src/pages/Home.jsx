@@ -258,7 +258,7 @@ const Home = () => {
               krush
             </span>
             <span className="absolute bottom-[15%] left-[45%] rotate-[12deg] text-white text-sm md:text-md font-semibold drop-shadow-md">
-              swati
+              swatu
             </span>
           </div>
         </div>

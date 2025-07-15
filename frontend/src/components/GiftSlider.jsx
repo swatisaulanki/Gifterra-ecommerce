@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import swatis from "../assets/swati.png";
+import swatu from "../assets/swati.png";
 
 const products = [
   {
@@ -24,7 +24,7 @@ const products = [
   },
   {
     id: 3,
-    image: swatis,
+    image: swatu,
     title: 'Custom Table Stand - swatu',
     price: 'Rs. 349.00',
     original: 'Rs. 599.00',
