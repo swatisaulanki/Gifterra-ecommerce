@@ -10,10 +10,14 @@ const ProductGrid = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://gifterra-backend-uukj.onrender.com/api/products')
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data.slice(0, 8)); // Fetch only 4 products
+        setProducts(data.slice(0, 8)); // fetch only 8 products
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching products:", err);
         setLoading(false);
       });
   }, []);
@@ -27,10 +31,10 @@ const ProductGrid = () => {
   };
 
   const handleAddToCart = (product) => {
-    const existing = cart.find(item => item.id === product.id);
+    const existing = cart.find(item => item._id === product._id);
     if (existing) {
       setCart(cart.map(item =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
       ));
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
@@ -41,7 +45,7 @@ const ProductGrid = () => {
   const handleUpdateQuantity = (itemId, action) => {
     setCart(prev =>
       prev.map(item => {
-        if (item.id === itemId) {
+        if (item._id === itemId) {
           const newQty = action === "increment" ? item.quantity + 1 : item.quantity - 1;
           return { ...item, quantity: newQty > 0 ? newQty : 1 };
         }
@@ -51,16 +55,16 @@ const ProductGrid = () => {
   };
 
   const handleDeleteItem = (itemId) => {
-    setCart(prev => prev.filter(item => item.id !== itemId));
+    setCart(prev => prev.filter(item => item._id !== itemId));
   };
 
   const handleViewDetails = (product) => {
-    alert(`Viewing details of ${product.title}`);
+    alert(`Viewing details of ${product.name}`);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-blue-100 p-4 sm:p-6 font-poppins relative">
-      <h1 className="text-3xl sm:text-4xl font-extrabold  text-gray-800 mb-8">Top Picks for You</h1>
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-8">Top Picks for You</h1>
 
       {loading ? (
         <div className="text-center text-lg font-medium text-gray-600">Loading products...</div>
@@ -68,22 +72,22 @@ const ProductGrid = () => {
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {products.map((product) => (
             <div
-              key={product.id}
+              key={product._id}
               className="relative bg-white rounded-xl shadow-md transition-transform duration-300 hover:scale-105 overflow-hidden"
             >
               <div className="group">
                 <img
                   src={product.image}
-                  alt={product.title}
+                  alt={product.name}
                   className="w-full h-48 sm:h-56 object-contain p-4 transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="p-4 bg-white text-center">
-                  <h2 className="text-sm font-semibold text-gray-700 line-clamp-2">{product.title}</h2>
-                  <p className="text-pink-600 font-bold text-sm mt-1">Rs. {Math.floor(product.price * 83)}</p>
+                  <h2 className="text-sm font-semibold text-gray-700 line-clamp-2">{product.name}</h2>
+                  <p className="text-pink-600 font-bold text-sm mt-1">Rs. {product.price}</p>
                 </div>
                 <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
                   <button
-                    onClick={() => handleChoose(product.id)}
+                    onClick={() => handleChoose(product._id)}
                     className="bg-white text-pink-600 font-semibold px-4 py-2 rounded-md text-xs hover:bg-pink-100"
                   >
                     Choose
@@ -106,17 +110,20 @@ const ProductGrid = () => {
               <FaTimes />
             </button>
             {(() => {
-              const product = products.find(p => p.id === expandedProductId);
+              const product = products.find(p => p._id === expandedProductId);
+              if (!product) return null;
               return (
                 <>
                   <img
                     src={product.image}
-                    alt={product.title}
+                    alt={product.name}
                     className="h-40 sm:h-52 object-contain mx-auto mb-4"
                   />
-                  <h2 className="text-lg font-bold text-center text-gray-800">{product.title}</h2>
-                  <p className="text-pink-600 font-bold mt-2 text-sm text-center">Rs. {Math.floor(product.price * 83)}</p>
-                  <p className="text-gray-600 text-sm text-center mt-2">{product.description.slice(0, 120)}...</p>
+                  <h2 className="text-lg font-bold text-center text-gray-800">{product.name}</h2>
+                  <p className="text-pink-600 font-bold mt-2 text-sm text-center">Rs. {product.price}</p>
+                  <p className="text-gray-600 text-sm text-center mt-2">
+                    {product.description ? product.description.slice(0, 120) : "No description available"}...
+                  </p>
                   <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center">
                     <button
                       onClick={() => handleAddToCart(product)}

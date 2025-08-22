@@ -35,16 +35,16 @@ const CartSidebar = ({
           <p className="text-center text-gray-600">Your cart is empty. Add some items!</p>
         ) : (
           cartItems.map((item) => (
-            <div key={item.id} className="flex gap-4 items-start mb-4">
-              <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded" />
+            <div key={item._id} className="flex gap-4 items-start mb-4">
+              <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded" />
               <div className="flex-1">
-                <h3 className="text-sm font-medium text-gray-800">{item.title}</h3>
+                <h3 className="text-sm font-medium text-gray-800">{item.name}</h3>
                 <div className="mt-1">
                   <span className="line-through text-gray-400 mr-2">
-                    Rs. {Math.floor(item.price * 83) + 200}
+                    Rs. {item.price + 200}
                   </span>
                   <span className="text-primary font-semibold">
-                    Rs. {Math.floor(item.price * 83)}
+                    Rs. {item.price}
                   </span>
                 </div>
 
@@ -52,20 +52,20 @@ const CartSidebar = ({
                 <div className="flex items-center mt-3 gap-2">
                   <button
                     className="border px-2 py-1 rounded"
-                    onClick={() => onUpdateQuantity(item.id, 'decrement')}
+                    onClick={() => onUpdateQuantity(item._id, 'decrement')}
                   >
                     <FiMinus />
                   </button>
                   <span className="px-3 border py-1">{item.quantity}</span>
                   <button
                     className="border px-2 py-1 rounded"
-                    onClick={() => onUpdateQuantity(item.id, 'increment')}
+                    onClick={() => onUpdateQuantity(item._id, 'increment')}
                   >
                     <FiPlus />
                   </button>
                   <AiOutlineDelete
                     className="ml-4 text-gray-500 hover:text-red-500 cursor-pointer"
-                    onClick={() => onDeleteItem(item.id)}
+                    onClick={() => onDeleteItem(item._id)}
                   />
                 </div>
               </div>
@@ -82,7 +82,7 @@ const CartSidebar = ({
             <span className="text-lg text-primary font-bold">
               Rs.{' '}
               {cartItems.reduce(
-                (total, item) => total + Math.floor(item.price * 83) * item.quantity,
+                (total, item) => total + item.price * item.quantity,
                 0
               )}
             </span>
